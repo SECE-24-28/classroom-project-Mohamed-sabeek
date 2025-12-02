@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>  
+<title> Layout 1</title>
+<style type = "text/css">
+*{
+margin:  0px;
+padding: 0px;
+}
+#logodiv{
+width:100%;
+background-color: aqua;
+min-height: 40px;
+line-height: 40px;
+padding-left: 20px ;
+box-sizing: border-box;
+margin-bottom: 2px;
+}
+#navigationdiv{
+width:100%;
+background-color: aqua;
+min-height: 40px;
+line-height: 40px;
+box-sizing: border-box;
+text-align: center;
+}
+#headdiv{
+margin-top: 2px;
+width:100%;
+background-color: aqua;
+min-height: 100px;
+line-height: 100px;
+box-sizing: border-box;
+text-align: center;
+}
+#parentdiv
+{
+    margin-top: 5px;
+    width: 1527px;
+    background-color:aqua;
+    min-height: 400px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+#sidediv{
+    width: 450px;
+    background-color: aquamarine;
+    line-height: 500px;
+    min-height: 100px;
+    text-align: center;   
+}
+#bodydiv
+{
+    width: 1000px;
+    background-color: aquamarine;
+    line-height: 500px;
+    min-height: 100px;
+    text-align: center;
+}
+#footdiv
+{
+    margin-top: 5px;
+    width:100%;
+    background-color: aqua;
+    min-height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    text-align: center;
+}
+#maindiv
+{
+    background-color:"";
+    margin:auto;
+}
+</style>
+</head>
+<body>
+<div id="maindiv">
+<div id="logodiv">Logo</div>
+<div id="navigationdiv">Navigation</div>
+<div id="headdiv">Header/Banner</div>
+<div id="parentdiv">
+<div id="sidediv">Side Bar</div>
+<div id="bodydiv">Body Area</div>
+</div>
+<div id="footdiv">Footer</div>
+</div>
+</body>
+</html>
