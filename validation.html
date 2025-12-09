@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sample Validation</title>
+<style>
+body 
+{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  padding: 70px;
+  background: linear-gradient(90deg,#f38383,#481717);
+}
+form {
+  background-color: rgb(240, 240, 240);
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  margin: auto;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input:hover, select:hover {
+  border: 1px solid #777;
+}
+
+input[type="submit"], input[type="reset"] {
+  width: 48%;
+  background-color: #421815;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+input[type="submit"]:hover, input[type="reset"]:hover {
+  background-color: #33120f;
+}
+
+input[type="radio"] {
+  width: auto;
+  margin: 0;
+}
+.error {
+  color: red;
+}
+
+.ok {
+  color: green;
+}
+
+</style>
+</head>
+<body>
+  <form action="check.html" method="get"
+        id="registrationForm" name="registrationForm"
+        onsubmit="return validateForm()" onreset="return resetForm()">
+
+    <label for="inputName">Student Name:</label><br>
+    <input type="text" id="inputName" name="studentName" placeholder="Enter your name" />
+    <span id="nameMsg"></span><br><br>
+
+    <label for="inputPassword">Password:</label><br>
+    <input type="password" id="inputPassword" name="password" placeholder="Enter your password" />
+    <span id="passwordMsg"></span><br><br>
+
+    <label for="inputConfirmPassword">Confirm Password:</label><br>
+    <input type="password" id="inputConfirmPassword" name="confirmPassword" placeholder="Re-enter password" />
+    <span id="confirmPasswordMsg"></span><br><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" id="genderMale" name="gender" value="male" />
+    <label for="genderMale">Male</label>
+
+    <input type="radio" id="genderFemale" name="gender" value="female" />
+    <label for="genderFemale">Female</label>
+    <span id="genderMsg"></span><br><br>
+
+    <label for="selectQualification">Qualification:</label><br>
+    <select id="selectQualification" name="qualification">
+      <option value="-1">--select--</option>
+      <option value="b.tech">B.Tech</option>
+      <option value="be(cse)">BE(CSE)</option>
+      <option value="mech">Mech</option>
+    </select>
+    <span id="qualificationMsg"></span><br><br>
+
+    <input type="submit" value="SUBMIT"/>
+    <input type="reset" value="RESET"/>
+  </form>
+
+  <script>
+    function validateForm() {
+
+      //Validation flags
+      var nameValid = true;
+      var passwordValid = true;
+      var confirmPasswordValid = true;
+      var genderValid = true;
+      var qualificationValid = true;
+
+      //Get the values
+      var nameVal = document.getElementById("inputName").value;
+      var passVal = document.getElementById("inputPassword").value;
+      var cpassVal = document.getElementById("inputConfirmPassword").value;
+
+      //Name validation
+      if (nameVal.trim() === "") {
+        nameValid = false;
+        document.getElementById("nameMsg").innerHTML = "Please enter the name";
+        document.getElementById("nameMsg").className = "error";
+      } else {
+        nameValid = true;
+        document.getElementById("nameMsg").innerHTML = "valid";
+        document.getElementById("nameMsg").className = "ok";
+      }
+
+      //Password validation
+      if (passVal === "") {
+        passwordValid = false;
+        document.getElementById("passwordMsg").innerHTML = "Please enter your password";
+        document.getElementById("passwordMsg").className = "error";
+      } else {
+        passwordValid = true;
+        document.getElementById("passwordMsg").innerHTML = "valid";
+        document.getElementById("passwordMsg").className = "ok";
+      }
+
+      //Confirm Password validation
+      if (cpassVal === "") {
+        confirmPasswordValid = false;
+        document.getElementById("confirmPasswordMsg").innerHTML = "Please re-enter your password";
+        document.getElementById("confirmPasswordMsg").className = "error";
+      } else if (cpassVal !== passVal) {
+        confirmPasswordValid = false;
+        document.getElementById("confirmPasswordMsg").innerHTML = "Password and confirm password not same";
+        document.getElementById("confirmPasswordMsg").className = "error";
+      } else {
+        confirmPasswordValid = true;
+        document.getElementById("confirmPasswordMsg").innerHTML = "valid";
+        document.getElementById("confirmPasswordMsg").className = "ok";
+      }
+      //Gender validation
+      if (document.getElementById("genderMale").checked !== true &&
+          document.getElementById("genderFemale").checked !== true) {
+        genderValid = false;
+        document.getElementById("genderMsg").innerHTML = "Please choose the gender";
+        document.getElementById("genderMsg").className = "error";
+      } else {
+        genderValid = true;
+        document.getElementById("genderMsg").innerHTML = "valid";
+        document.getElementById("genderMsg").className = "ok";
+      }
+      //Qualification validation
+      if (document.getElementById("selectQualification").value === "-1") {
+        qualificationValid = false;
+        document.getElementById("qualificationMsg").innerHTML = "Please choose the qualification";
+        document.getElementById("qualificationMsg").className = "error";
+      } else {
+        qualificationValid = true;
+        document.getElementById("qualificationMsg").innerHTML = "valid";
+        document.getElementById("qualificationMsg").className = "ok";
+      }
+      //Final validation check
+      if (nameValid === false || passwordValid === false || confirmPasswordValid === false ||
+          genderValid === false || qualificationValid === false) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+    //Reset form function
+    function resetForm() {
+      document.getElementById("nameMsg").innerHTML = "";
+      document.getElementById("passwordMsg").innerHTML = "";
+      document.getElementById("confirmPasswordMsg").innerHTML = "";
+      document.getElementById("genderMale").checked = false;
+      document.getElementById("genderFemale").checked = false;
+      document.getElementById("genderMsg").innerHTML = "";
+      document.getElementById("qualificationMsg").innerHTML = "";
+      return true;
+    }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Process Data</title>
+
+<style>
+  body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(90deg,#f38383,#481717);
+    padding: 40px;
+    color:  #1f0503;
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+    color: black;
+  }
+  a 
+  {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+  }
+</style>
+
+</head>
+<body>
+
+
+  <h2>Student Details</h2>
+    <script type="text/javascript">
+      var query = window.location.search;
+      var data = new URLSearchParams(query);
+      
+      document.write("The query: ", query, "<br><br>");
+      document.write("The data: ", data, "<br><br>");
+      document.write("The gender is: ", data.get("gender"));
+    </script>
+  <a href="validation.html">Back to Form</a>
+</body>
+</html>
