@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PORTFOLIO</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #menu {
+      width: 100%;
+      background-color: #0f172a;
+      min-height: 55px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .menuitem {
+      padding: 0 25px;
+      background-color: #0f172a;
+      border-bottom: 2px solid transparent;
+      line-height: 55px;
+      text-align: center;
+      color: #e2e8f0;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      cursor: pointer;
+      transition: 0.2s;
+      user-select: none;
+    }
+
+    .menuitem:hover,
+    .menuitem:focus {
+      color: #06b6d4;
+      border-bottom: 2px solid #06b6d4;
+      outline: none;
+    }
+
+    .menuitem.active {
+      color: #06b6d4;
+      border-bottom: 2px solid #06b6d4;
+    }
+
+    #content {
+      width: 100%;
+      background-color: #f1f5f9;
+      min-height: 678px;
+      display: flex;
+      font-family: Arial, sans-serif;
+      padding: 30px 40px;
+      gap: 30px;
+      
+    }
+
+    #profile {
+      width: 484px;
+      background-color: #ffffff;
+      text-align: center;
+      padding-top: 40px;
+      border-radius: 8px;
+      font-size: 18px;
+      color: black;
+    }
+  
+
+    #profileimg {
+      margin-top: 8px;
+      width: 300px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 3px solid #c4c70c;
+      margin-bottom: 6px;
+    }
+
+    #aboutme {
+      background-color: #06b6d4;
+      padding: 40px 50px;
+      min-height: 675px;
+      width: 100%;
+      border-radius: 8px;
+
+    }
+
+    #aboutme h4 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #0f172a;
+    }
+    #aboutme h4:hover {
+      color: #ffffff;
+    }
+
+    #aboutme p {
+      text-align: justify;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 18px;
+      color: #1e293b;
+    }
+    #aboutme p:hover {
+      color: #ffffff;
+    }
+
+    #project {
+      width: 100%;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      padding: 20px 0;
+      margin-top: 30px;
+    }
+    #project:hover {
+      color: #06b6d4;
+    }
+
+    #projectcontent {
+      width: 100%;
+      min-height: 675px;
+      background-color: #e2e8f0;
+      padding: 10px 0 30px 0;
+    }
+
+    #projectcontent h4 {
+      padding: 20px;
+      text-align: left;
+      font-size: 24px;
+      color: #0f172a;
+    }
+    #projectcontent h4:hover {
+      color: #ffffff;
+    }
+
+    #projectcontent p {
+      padding: 0 30px 30px 30px;
+      line-height: 1.5;
+      font-size: 18px;
+      color: #1e293b;
+      text-align: justify;
+    }
+    #projectcontent p:hover {
+      color: #ffffff;
+    }
+
+    #certificate {
+      width: 100%;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      padding: 20px 0;
+      margin-top: 30px;
+    }
+    #certificate:hover {
+      color: #06b6d4;
+    }
+
+    #certificatecontent {
+      padding: 30px;
+      line-height: 3.1;
+      font-size: 18px;
+      color: #1e293b;
+      text-align: justify;
+      background: #e2e8f0;
+    }
+
+    #skill {
+      width: 100%;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      padding: 20px 0;
+      margin-top: 30px;
+    }
+    #skill:hover {
+      color: #06b6d4;
+    }
+
+    #skillcontent {
+      padding: 30px;
+      line-height: 3.1;
+      font-size: 18px;
+      color: #1e293b;
+      text-align: justify;
+      background: #e2e8f0;
+    }
+
+    #contact {
+      width: 100%;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      padding: 20px 0;
+      margin-top: 30px;
+    }
+    #contact:hover {
+      color: #06b6d4;
+    }
+
+    #contactcontent {
+      padding: 30px;
+      line-height: 3.1;
+      font-size: 18px;
+      color: #1e293b;
+      text-align: justify;
+      min-height: 555px;
+      background: #e2e8f0;
+    }
+
+    #footer{
+      width: 100%;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      padding: 20px 0;
+      margin-top: 30px;
+    }
+    #footer:hover {
+      color: #06b6d4;
+    }
+    #box1 {
+      border: 2px solid #0f172a;
+      padding: 20px;
+      margin: 20px 80px;
+      border-radius: 8px;
+      background-color: #06b6d4;
+    }
+    #box1:hover {
+      background-color: #4de2c2;
+      color: #ffffff;
+    }
+    #box2 {
+      border: 2px solid #0f172a;
+      padding: 10px;
+      margin: 10px 80px;
+      border-radius: 8px;
+      background-color: #06b6d4;
+    }
+     #box2:hover {
+      background-color: #4de2c2;
+      color: #ffffff;
+    }
+    #box3 {
+
+      border: 2px solid #0f172a;
+      padding: 20px;
+      margin-top: 80px;
+      margin-left: 520px;
+      border-radius: 8px;
+      background-color: #06b6d4;
+      width: fit-content;
+    }
+     #box3:hover {
+      background-color: #4de2c2;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div id="menu" role="navigation" aria-label="Main menu">
+    <a class="menuitem" href="#content">Home</a>
+    <a class="menuitem" href="#aboutme">About</a>
+    <a class="menuitem" href="#project">Project</a>
+    <a class="menuitem" href="#certificate">Certificates</a>
+    <a class="menuitem" href="#skill">Skills</a>
+    <a class="menuitem" href="#contact">Contact</a>
+  </div>
+
+  <section id="content">
+    <div id="profile">
+      <p>Mohamed Sabeek H</p>
+      <img src="Myphoto.jpeg" id="profileimg" alt="Mohamed Sabeek photo" />
+      <p>FULL STACK DEVELOPER</p>
+    </div>
+
+    <div id="aboutme">
+      <h4>About Me</h4>
+      <p>Hi, I'm Mohamed Sabeek, a passionate developer with a strong interest in Artificial Intelligence, Computer Vision, and Full-Stack Development. I love creating real-world solutions using technology—especially systems that combine automation, data processing, and smart decision-making.</p>
+      <p>I’m currently working on an AI-powered CCTV Assault Detection System that identifies distress body poses using YOLO, OpenCV, and automatically triggers alerts through Twilio with GPS and location data.</p>
+      <p>Alongside AI, I enjoy web development, Python programming, system design, and exploring creative problem-solving challenges.</p>
+      <p>I’m continuously learning and upgrading my skills to build smart, scalable, and meaningful technology that improves everyday life.</p>
+      <p>I believe in continuous learning, and I constantly experiment with new tools, frameworks, and techniques to stay aligned with modern development trends. I enjoy collaborating with others, sharing knowledge, and contributing to projects that challenge my creativity and technical skills.</p>
+      <p>In everything I do, my goal is to create technology that is reliable, scalable, and genuinely useful, while continuing to grow as both an engineer and a problem solver. I aim to grow into a versatile engineer who can build smart applications that solve real problems and make a meaningful difference.</p>
+    </div>
+  </section>
+
+  <section id="project">My Projects</section>
+  <div id="projectcontent">
+    
+    <div id="box1">
+    <h4>Bounty Hunter</h4>
+    <p>Bounty Hunter is an AI-powered public safety system that helps law enforcement by detecting and identifying wanted criminals in public spaces. It uses facial recognition and computer vision to scan real-time video feeds from CCTV cameras or smart glasses and matches detected faces against a criminal database.</p></div>
+    <div id="box1">
+    <h4>Study Mate</h4>
+    <p>Study Mate is an AI tool that helps students learn from their PDFs like textbooks and notes. Students can upload PDFs, ask questions in natural language, and get clear answers. It uses AI and semantic search to find the most relevant content from the document. This makes studying faster, easier, and more effective.</p></div>
+    <div id="box1">
+    <h4>Zenith Brain Institution Website</h4>
+    <p>The Zenith Brain Institution Website is a digital education management platform built with Python (Django), MySQL, and a responsive frontend. It streamlines operations by offering modern interfaces for students, parents, tutors, and administrators. The system includes features such as course management, attendance monitoring, progress tracking, and communication tools. By centralizing academic and administrative tasks, Zenith improves efficiency and enhances the overall learning experience.</p></div>
+  </div>
+  
+
+  <section id="certificate">My Certificates</section>
+  <div id="certificatecontent">
+    <div id="box2"><p>Mastering DSA using C++ and C – Udemy</p></div>
+    <div id="box2"><p>Python for Data Science and Machine Learning – Udemy</p></div>
+    <div id="box2"><p>Complete Web Development Bootcamp – Udemy</p></div>
+    <div id="box2"><p>AI For Everyone – Coursera</p></div>
+    <div id="box2"><p>Deep Learning Specialization – Coursera</p></div>
+    <div id="box2"><p>Machine Learning Specialization – Coursera</p></div>
+    <div id="box2"><p>Introduction to Computer Vision – Coursera</p></div>
+    <div id="box2"><p>Full-Stack Web Development with React – Coursera</p></div>
+    <div id="box2"><p>IBM Data Science Professional Certificate – Coursera</p></div>
+    <div id="box2"><p>Python matering basic to expert level-Udemy</p></div>
+    <div id="box2"><p>Java programming expert level-Coursera</p></div>
+  </div>
+
+  <section id="skill">My Skills</section>
+  <div id="skillcontent">
+    <div id="box2"><p>Programming Languages: Python, JavaScript, C++</p></div>
+    <div id="box2"><p>Web Development: HTML, CSS, JavaScript, React, Node.js, Express.js, Django</p></div>
+    <div id="box2"><p>Databases: MySQL, MongoDB</p></div>
+    <div id="box2"><p>AI & Machine Learning: TensorFlow, Keras, Scikit-learn, OpenCV</p></div>
+    <div id="box2"><p>Tools & Platforms: Git, GitHub, Docker, AWS</p></div>
+    <div id="box2"><p>Soft Skills: Problem-solving, teamwork, communication, adaptability</p></div>
+    <div id="box2"><p>Languages: English (fluent), Arabic (native)</p></div>
+    <div id="box2"><p>Other Skills: Data Analysis, Computer Vision, Full-Stack Development, System Design</p></div>
+    <div id="box2"><p>Hobbies: Coding, Reading Tech Blogs, Playing Chess, Hiking</p></div>
+    <div id="box2"><p>Interests: AI, Web Development, Open Source Contribution, Tech Innovations</p></div>
+    <div id="box2"><p>Certifications: Multiple courses in AI, Web Development, and Data Science</p></div>
+    </div>
+  </div>
+
+  <section id="contact">Contact Me</section>
+  <div id="contactcontent">
+    <div id="box3">
+    <p>Email: safeeofficial1730@gmail.com</p>
+    <p>Phone: +123-456-7890</p>
+    <p>LinkedIn: linkedin.com/in/mohamedsabeek</p>
+    <p>GitHub: github.com/mohamedsabeek</p>
+    <p>Twitter: twitter.com/mohamedsabeek</p>
+    <p>Portfolio Website: www.mohamedsabeek.com</p>
+  </div>
+  </div>
+
+  <div id="footer">Thank You!</div>
+
+</body>
+</html>
